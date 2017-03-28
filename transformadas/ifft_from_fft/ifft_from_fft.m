@@ -28,3 +28,18 @@ subplot(2,3,5), imshow(uint8(abs(infft2)));
 title('Inversa com (fft(x*)*)/n.')
 subplot(2,3,6), imshow(uint8(abs(infft3)));
 title('Inversa com fft(x*)/n.')
+
+
+%% Apenas uma linha da imagem
+sinal = img(1,:);
+sinal = double(sinal);
+n = length(sinal);
+trans_sin = fft(sinal);
+
+infft1 = ifft(trans_sin);
+infft2 = conj(fft(conj(trans_sin)))/n;
+infft3 = fft(conj(trans_sin))/n;
+
+mse(sinal, real(infft1))
+mse(sinal, real(infft2))
+mse(sinal, real(infft3))

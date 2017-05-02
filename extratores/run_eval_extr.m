@@ -58,18 +58,18 @@ labels = load('../../../Documents/MATLAB/har/test/Y_test.txt');
 data = [X labels];
 
 conf.mlMethods = {'SOMKNN'};
-conf.numRep = 3
+conf.numRep = 2;
 
-% conf.descr = sprintf(strModel, 'som_knn10');
-% conf.extraSOMKNN.K = 3;
-% conf.extraSOMKNN.tamanho = [10 10];
-% evaluate_ml(data, conf)
-
-
-conf.descr = sprintf(strModel, 'som_knn50');
+conf.descr = sprintf(strModel, 'som_knn10');
 conf.extraSOMKNN.K = 3;
-conf.extraSOMKNN.tamanho = [50 50];
+conf.extraSOMKNN.tamanho = [10 10];
 evaluate_ml(data, conf)
+
+
+% conf.descr = sprintf(strModel, 'som_knn40');
+% conf.extraSOMKNN.K = 3;
+% conf.extraSOMKNN.tamanho = [40 40];
+% evaluate_ml(data, conf)
 
 
 % ACC: 0.853288 10
